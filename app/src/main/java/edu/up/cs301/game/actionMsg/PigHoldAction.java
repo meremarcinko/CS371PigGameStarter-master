@@ -1,4 +1,11 @@
 package edu.up.cs301.game.actionMsg;
 
-public class PigHoldAction {
+import edu.up.cs301.game.GamePlayer;
+
+public class PigHoldAction extends GameAction {
+
+    public PigHoldAction(){
+        GamePlayer player
+    }
+
 }
