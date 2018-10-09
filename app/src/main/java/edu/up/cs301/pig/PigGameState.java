@@ -22,7 +22,15 @@ int diceValue;
     }
 
     public PigGameState(PigGameState pigGameState)
-    {   this.(pigGameState.getPlayerId(), pigGameState.getPlayer2id(), pigGameState.getPlayer0Score(), pigGameState.getPlayer1Score(), pigGameState.getTotal(), pigGameState.getDiceValue()
+    {
+        pigGameState.getPlayerId();
+        pigGameState.getPlayer2id();
+        pigGameState.getPlayer0Score();
+        pigGameState.getPlayer1Score();
+        pigGameState.getTotal();
+        pigGameState.getDiceValue();
+
+    //this.(pigGameState.getPlayerId(),pigGameState.getPlayer2id(), pigGameState.getPlayer0Score(), pigGameState.getPlayer1Score(), pigGameState.getTotal(), pigGameState.getDiceValue()
     }
 
     public int getPlayerId()
