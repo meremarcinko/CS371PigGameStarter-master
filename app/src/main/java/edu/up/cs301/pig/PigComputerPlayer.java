@@ -24,7 +24,7 @@ public class PigComputerPlayer extends GameComputerPlayer {
     Game g  = super.game;
     //generate 50/50 chance
     Random r = new Random();
-    int choice = r.nextInt(2);
+    int choice;
 
 
 
@@ -45,17 +45,18 @@ public class PigComputerPlayer extends GameComputerPlayer {
     protected void receiveInfo(GameInfo info) {
         // TODO  You will implement this method
 
-
-        if (info instanceof PigGameState) {
-            ((PigGameState)info).getPlayerId(); //cast info
-            return;
-        } else {
-            if(choice == 1) {
-                PigHoldAction hold = new PigHoldAction(this);
-                g.sendAction(hold);
+        if ((info instanceof PigGameState)) {
+            if (playerNum != ((PigGameState) info).getPlayerId()) {
+                return;
             } else {
-                PigRollAction roll = new PigRollAction(this);
-                g.sendAction(roll);
+                choice = r.nextInt(2);
+                if (choice == 1) {
+                    PigHoldAction hold = new PigHoldAction(this);
+                    g.sendAction(hold);
+                } else {
+                    PigRollAction roll = new PigRollAction(this);
+                    g.sendAction(roll);
+                }
             }
         }
     }//receiveInfo
