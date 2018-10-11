@@ -21,6 +21,4 @@ public class PigHoldAction extends GameAction {
         super(p);
     }
 
-
-
 }

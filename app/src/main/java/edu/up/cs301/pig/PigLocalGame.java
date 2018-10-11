@@ -1,8 +1,12 @@
 package edu.up.cs301.pig;
 
+import edu.up.cs301.game.GameMainActivity;
 import edu.up.cs301.game.GamePlayer;
 import edu.up.cs301.game.LocalGame;
 import edu.up.cs301.game.actionMsg.GameAction;
+import edu.up.cs301.game.actionMsg.PigHoldAction;
+import edu.up.cs301.game.actionMsg.PigRollAction;
+import edu.up.cs301.game.infoMsg.GameInfo;
 import edu.up.cs301.game.infoMsg.GameState;
 
 import android.util.Log;
@@ -15,11 +19,67 @@ import android.util.Log;
  */
 public class PigLocalGame extends LocalGame {
 
+    GamePlayer p = new GamePlayer() {
+        @Override
+        public void gameSetAsGui(GameMainActivity activity) {
+
+        }
+
+        @Override
+        public void setAsGui(GameMainActivity activity) {
+
+        }
+
+        @Override
+        public void sendInfo(GameInfo info) {
+
+        }
+
+        @Override
+        public void start() {
+
+        }
+
+        @Override
+        public boolean requiresGui() {
+            return false;
+        }
+
+        @Override
+        public boolean supportsGui() {
+            return false;
+        }
+    };
+
+    LocalGame local = new LocalGame() {
+        @Override
+        protected void sendUpdatedStateTo(GamePlayer p) {
+
+        }
+
+        @Override
+        protected boolean canMove(int playerIdx) {
+            return false;
+        }
+
+        @Override
+        protected String checkIfGameOver() {
+            return null;
+        }
+
+        @Override
+        protected boolean makeMove(GameAction action) {
+            return false;
+        }
+    };
+
     /**
      * This ctor creates a new game state
      */
     public PigLocalGame() {
         //TODO  You will implement this constructor
+
+        PigGameState aGame = new PigGameState();
     }
 
     /**
@@ -28,7 +88,12 @@ public class PigLocalGame extends LocalGame {
     @Override
     protected boolean canMove(int playerIdx) {
         //TODO  You will implement this method
-        return false;
+
+        if(playerIdx == getPlayerIdx(p)){ //fix
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -39,7 +104,19 @@ public class PigLocalGame extends LocalGame {
     @Override
     protected boolean makeMove(GameAction action) {
         //TODO  You will implement this method
-        return false;
+
+        //PigHoldAction hold = new PigHoldAction(p);
+        //PigRollAction roll = new PigRollAction(p);
+
+        if (action instanceof PigHoldAction){
+            //p = p + aGame().total;
+
+            return true;
+        } else if (action instanceof PigRollAction){
+            return true;
+        } else {
+            return false;
+        }
     }//makeMove
 
     /**
