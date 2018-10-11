@@ -21,29 +21,19 @@ public class PigLocalGame extends LocalGame {
 
     GamePlayer p = new GamePlayer() {
         @Override
-        public void gameSetAsGui(GameMainActivity activity) {
-
-        }
+        public void gameSetAsGui(GameMainActivity activity) { }
 
         @Override
-        public void setAsGui(GameMainActivity activity) {
-
-        }
+        public void setAsGui(GameMainActivity activity) { }
 
         @Override
-        public void sendInfo(GameInfo info) {
-
-        }
+        public void sendInfo(GameInfo info) { }
 
         @Override
-        public void start() {
-
-        }
+        public void start() { }
 
         @Override
-        public boolean requiresGui() {
-            return false;
-        }
+        public boolean requiresGui() { return false; }
 
         @Override
         public boolean supportsGui() {
@@ -53,9 +43,7 @@ public class PigLocalGame extends LocalGame {
 
     LocalGame local = new LocalGame() {
         @Override
-        protected void sendUpdatedStateTo(GamePlayer p) {
-
-        }
+        protected void sendUpdatedStateTo(GamePlayer p) { }
 
         @Override
         protected boolean canMove(int playerIdx) {
@@ -73,13 +61,15 @@ public class PigLocalGame extends LocalGame {
         }
     };
 
+    public PigGameState aGame;
+
     /**
      * This ctor creates a new game state
      */
     public PigLocalGame() {
         //TODO  You will implement this constructor
 
-        PigGameState aGame = new PigGameState();
+        aGame = new PigGameState();
     }
 
     /**
@@ -89,7 +79,7 @@ public class PigLocalGame extends LocalGame {
     protected boolean canMove(int playerIdx) {
         //TODO  You will implement this method
 
-        if(playerIdx == getPlayerIdx(p)){ //fix
+        if(playerIdx == getPlayerIdx(p)){
             return true;
         } else {
             return false;
@@ -105,14 +95,14 @@ public class PigLocalGame extends LocalGame {
     protected boolean makeMove(GameAction action) {
         //TODO  You will implement this method
 
-        //PigHoldAction hold = new PigHoldAction(p);
-        //PigRollAction roll = new PigRollAction(p);
 
         if (action instanceof PigHoldAction){
             //p = p + aGame().total;
-
+            
             return true;
         } else if (action instanceof PigRollAction){
+
+
             return true;
         } else {
             return false;
@@ -125,6 +115,10 @@ public class PigLocalGame extends LocalGame {
     @Override
     protected void sendUpdatedStateTo(GamePlayer p) {
         //TODO  You will implement this method
+
+        aGame.toString();
+        p.sendInfo(aGame);
+
     }//sendUpdatedSate
 
     /**
@@ -137,6 +131,13 @@ public class PigLocalGame extends LocalGame {
     @Override
     protected String checkIfGameOver() {
         //TODO  You will implement this method
+
+        if(aGame.player0Score > 50) {
+            System.out.println("Winner: " + aGame.playerId + "Score: " + aGame.player0Score);
+        } else if(aGame.player1Score > 50) {
+            System.out.println("Winner: " + aGame.player2id + "Score: " + aGame.player1Score);
+        }
+
         return null;
     }
 
