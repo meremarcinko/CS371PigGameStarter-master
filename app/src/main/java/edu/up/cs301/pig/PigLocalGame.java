@@ -36,9 +36,7 @@ public class PigLocalGame extends LocalGame {
         public boolean requiresGui() { return false; }
 
         @Override
-        public boolean supportsGui() {
-            return false;
-        }
+        public boolean supportsGui() { return false; }
     };
 
     LocalGame local = new LocalGame() {
