@@ -9,6 +9,7 @@ int player0Score;
 int player1Score;
 int total;
 int diceValue;
+int playerTurn;
 
     public PigGameState()
     {
@@ -18,6 +19,7 @@ int diceValue;
         player1Score = 0;
         total = 0;
         diceValue = 0;
+        playerTurn = 0;
 
     }
 
@@ -29,6 +31,7 @@ int diceValue;
         pigGameState.getPlayer1Score();
         pigGameState.getTotal();
         pigGameState.getDiceValue();
+        pigGameState.getPlayerTurn();
 
     }
 
@@ -62,6 +65,10 @@ int diceValue;
         return diceValue;
     }
 
+    public int getPlayerTurn() {
+        return playerTurn;
+    }
+
     public void setPlayerId(int playerId)
     {
         this.playerId = playerId;
@@ -91,4 +98,6 @@ int diceValue;
     {
         this.diceValue = diceValue;
     }
+
+    public void setPlayerTurn(int playerTurn) { this.playerTurn = playerTurn; }
 }

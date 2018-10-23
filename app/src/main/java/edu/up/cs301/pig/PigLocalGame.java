@@ -20,6 +20,7 @@ import java.util.Random;
  * @version February 2016
  */
 public class PigLocalGame extends LocalGame {
+    public PigGameState aGame;
 
     GamePlayer p = new GamePlayer() {
         @Override
@@ -40,28 +41,6 @@ public class PigLocalGame extends LocalGame {
         @Override
         public boolean supportsGui() { return false; }
     };
-
-    LocalGame local = new LocalGame() {
-        @Override
-        protected void sendUpdatedStateTo(GamePlayer p) { }
-
-        @Override
-        protected boolean canMove(int playerIdx) {
-            return false;
-        }
-
-        @Override
-        protected String checkIfGameOver() {
-            return null;
-        }
-
-        @Override
-        protected boolean makeMove(GameAction action) {
-            return false;
-        }
-    };
-
-    public PigGameState aGame;
 
     /**
      * This ctor creates a new game state
@@ -128,6 +107,11 @@ public class PigLocalGame extends LocalGame {
             else if(aGame.getDiceValue() == 1)
             {
                 aGame.setTotal(0);
+
+                if(players.length > 1){
+                    aGame.setPlayerTurn(aGame.getPlayerTurn() - 1);
+                    return true;
+                }
                 //TODO: check to see if there is more than one player
                 //TODO: make it the other players turn
             }

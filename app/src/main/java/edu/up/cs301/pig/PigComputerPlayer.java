@@ -58,6 +58,8 @@ public class PigComputerPlayer extends GameComputerPlayer {
                     g.sendAction(roll);
                 }
             }
+        } else {
+            return;
         }
     }//receiveInfo
 
