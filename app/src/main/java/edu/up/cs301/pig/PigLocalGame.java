@@ -11,6 +11,8 @@ import edu.up.cs301.game.infoMsg.GameState;
 
 import android.util.Log;
 
+import java.util.Random;
+
 /**
  * class PigLocalGame controls the play of the game
  *
@@ -91,18 +93,49 @@ public class PigLocalGame extends LocalGame {
      */
     @Override
     protected boolean makeMove(GameAction action) {
-        //TODO  You will implement this method
+        int currentRunningTotal;
+        currentRunningTotal = aGame.getTotal();
 
+        if (action instanceof PigHoldAction)
+        {
+            int currentPlayerScore;
+            int currentPlayer2Score;
 
-        if (action instanceof PigHoldAction){
-            //p = p + aGame().total;
-            
+            if(aGame.getPlayerId() == 0)
+            {
+                currentPlayerScore = currentRunningTotal + aGame.getPlayer0Score();
+                aGame.setPlayer0Score(currentPlayerScore);
+            }
+
+            if(aGame.getPlayer2id() == 0)
+            {
+                currentPlayer2Score = currentRunningTotal + aGame.getPlayer1Score();
+                aGame.setPlayer1Score(currentPlayer2Score);
+            }
             return true;
-        } else if (action instanceof PigRollAction){
-
+        }
+        else if (action instanceof PigRollAction)
+        {
+            int newCurrent;
+            Random roll = new Random();
+            int diceRoll = roll.nextInt(6);
+            aGame.setDiceValue(diceRoll);
+            if(aGame.getDiceValue() != 1)
+            {
+                newCurrent = currentRunningTotal + aGame.getDiceValue();
+                aGame.setTotal(newCurrent);
+            }
+            else if(aGame.getDiceValue() == 1)
+            {
+                aGame.setTotal(0);
+                //TODO: check to see if there is more than one player
+                //TODO: make it the other players turn
+            }
 
             return true;
-        } else {
+        }
+        else
+        {
             return false;
         }
     }//makeMove

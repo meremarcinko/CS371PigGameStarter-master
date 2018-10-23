@@ -1,16 +1,16 @@
 {
     "logs": [
         {
-            "outputFile": "P:\\cs371\\CS371PigGameStarter-master\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v11\\values-v11.xml",
+            "outputFile": "/Users/ashley/Downloads/pigGame/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v11/values-v11.xml",
             "map": [
                 {
-                    "source": "P:\\cs371\\CS371PigGameStarter-master\\app\\src\\main\\res\\values-v11\\styles.xml",
+                    "source": "/Users/ashley/Downloads/pigGame/app/src/main/res/values-v11/styles.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
-                        "startOffsets": "19",
+                        "startOffsets": "17",
                         "endColumns": "63",
-                        "endOffsets": "78"
+                        "endOffsets": "76"
                     },
                     "to": {
                         "startLines": "2",
