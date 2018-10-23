@@ -1,6 +1,7 @@
-package edu.up.cs301.game.actionMsg;
+package edu.up.cs301.pig;
 
 import edu.up.cs301.game.GamePlayer;
+import edu.up.cs301.game.actionMsg.GameAction;
 
 /**
  * An action by which the player tells the game that it wants to roll.
@@ -9,7 +10,7 @@ import edu.up.cs301.game.GamePlayer;
  * @author Ashley Kim
  * @version Oct 2018
  */
-public class PigRollAction extends GameAction{
+public class PigRollAction extends GameAction {
 
     /** constructor
      *

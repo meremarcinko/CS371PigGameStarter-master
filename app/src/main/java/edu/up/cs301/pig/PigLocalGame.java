@@ -4,12 +4,7 @@ import edu.up.cs301.game.GameMainActivity;
 import edu.up.cs301.game.GamePlayer;
 import edu.up.cs301.game.LocalGame;
 import edu.up.cs301.game.actionMsg.GameAction;
-import edu.up.cs301.game.actionMsg.PigHoldAction;
-import edu.up.cs301.game.actionMsg.PigRollAction;
 import edu.up.cs301.game.infoMsg.GameInfo;
-import edu.up.cs301.game.infoMsg.GameState;
-
-import android.util.Log;
 
 import java.util.Random;
 
@@ -108,12 +103,10 @@ public class PigLocalGame extends LocalGame {
             {
                 aGame.setTotal(0);
 
-                if(players.length > 1){
-                    aGame.setPlayerTurn(aGame.getPlayerTurn() - 1);
+                if(players.length > 1){ //check to see if there is more than one player
+                    aGame.setPlayerTurn(aGame.getPlayerTurn() - 1); //make it the other player's turn
                     return true;
                 }
-                //TODO: check to see if there is more than one player
-                //TODO: make it the other players turn
             }
 
             return true;
@@ -148,9 +141,9 @@ public class PigLocalGame extends LocalGame {
         //TODO  You will implement this method
 
         if(aGame.player0Score > 50) {
-            System.out.println("Winner: " + aGame.playerId + "Score: " + aGame.player0Score);
+            System.out.println("Congratulations " + aGame.playerId + "! You Won! Your Total Score is: " + aGame.player0Score);
         } else if(aGame.player1Score > 50) {
-            System.out.println("Winner: " + aGame.player2id + "Score: " + aGame.player1Score);
+            System.out.println("Congratulations " + aGame.player2id + "! You Won! Your Total Score is: " + aGame.player1Score);
         }
 
         return null;

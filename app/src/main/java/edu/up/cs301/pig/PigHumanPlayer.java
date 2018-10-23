@@ -3,12 +3,9 @@ package edu.up.cs301.pig;
 import edu.up.cs301.game.GameHumanPlayer;
 import edu.up.cs301.game.GameMainActivity;
 import edu.up.cs301.game.R;
-import edu.up.cs301.game.actionMsg.PigHoldAction;
-import edu.up.cs301.game.actionMsg.PigRollAction;
 import edu.up.cs301.game.infoMsg.GameInfo;
 
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -65,6 +62,13 @@ public class PigHumanPlayer extends GameHumanPlayer implements OnClickListener {
 
         if (info instanceof PigGameState){
             pig = (PigGameState) info;
+
+            //indication on GUI whose turn it is
+            if (pig.getPlayerTurn() == 0) {
+                dieImageButton.setBackgroundColor(Color.RED); //red if human player's turn
+            } else {
+                dieImageButton.setBackgroundColor(Color.GRAY); //gray if opponent's turn
+            }
 
             int proper = pig.getPlayer0Score();
             playerScoreTextView.setText( proper + "" );

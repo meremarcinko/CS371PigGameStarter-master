@@ -4,14 +4,7 @@ import java.util.Random;
 
 import edu.up.cs301.game.Game;
 import edu.up.cs301.game.GameComputerPlayer;
-import edu.up.cs301.game.GameMainActivity;
-import edu.up.cs301.game.GamePlayer;
-import edu.up.cs301.game.actionMsg.GameAction;
-import edu.up.cs301.game.actionMsg.PigHoldAction;
-import edu.up.cs301.game.actionMsg.PigRollAction;
-import edu.up.cs301.game.infoMsg.BindGameInfo;
 import edu.up.cs301.game.infoMsg.GameInfo;
-import edu.up.cs301.game.util.Tickable;
 
 /**
  * An AI for Pig
